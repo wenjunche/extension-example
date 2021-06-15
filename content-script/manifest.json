@@ -1,0 +1,19 @@
+{
+    "name": "Content Script Example",
+    "description": "Content Script Example",
+    "version": "1.0",
+    "manifest_version": 3,
+    "externally_connectable": {
+      "matches": ["*://*.example.com/*"]
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "http://localhost:8081/*", "https://example.com/*"],
+        "run_at": "document_idle",
+        "all_frames": true,
+        "js": ["contentScript.js"]
+      }
+    ]
+  }
+  

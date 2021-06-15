@@ -44,3 +44,14 @@ chrome.omnibox.onInputEntered.addListener(
     console.log('inputEntered: ' + text);
     alert('You just typed "' + text + '"');
   });
+
+
+// receive message from example.com
+// add externally_connectable to manifest
+// open example.com and run this in devtools:
+// chrome.runtime.sendMessage(this_extension_id, 'hello')  
+chrome.runtime.onMessageExternal.addListener(
+  function(request, sender, sendResponse) {
+    console.log(`got external message from ${sender.url} ${request}`)
+  }
+);

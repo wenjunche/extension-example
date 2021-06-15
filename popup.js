@@ -13,6 +13,21 @@ changeColor.addEventListener("click", async () => {
     target: { tabId: tab.id },
     function: setPageBackgroundColor,
   });
+
+  const cookies = await chrome.cookies.getAll({domain: 'openfin.co'});
+  cookies.forEach(c => {
+    console.log(c);
+  });
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      console.log(xhr.responseText);
+    }
+  };
+  xhr.open("GET", 'https://cdn.openfin.co/release/runtime/stable', true);
+  xhr.send();
+
 });
 
 // The body of this function will be execuetd as a content script inside the

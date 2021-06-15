@@ -1,0 +1,24 @@
+{
+	"startup_app": {
+	  "name": "Extension Test",
+	  "uuid": "Extension Test",
+	  "url": "http://localhost:8081/index.html",
+	  "autoShow": true,
+	  "frame": true,
+	  "defaultCentered": true,
+	  "resizable": true,
+	  "saveWindowState": false,
+	  "waitForPageLoad": false,
+	  "defaultHeight": 400,
+	  "defaultWidth": 400
+	},
+	"runtime": {
+	  "argumentsxx": " ",
+	  "version": "stable"
+	},
+	"extensions": [
+		{
+			"url": "C:\\Users\\wenju\\Documents\\projects\\extension-example\\content-script\\content-script.crx"
+		}
+	]
+  }

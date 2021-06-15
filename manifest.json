@@ -18,8 +18,15 @@
                   "activeTab",
                   "scripting",
                   "contextMenus",
-                  "management"
+                  "management",
+                  "downloads",
+                  "cookies"
                 ],
+  "host_permissions": [
+      "https://playground.openfin.co/*",
+      "https://example.com/*",
+      "http://localhost:8081/*"
+    ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -39,5 +46,18 @@
   "omnibox": { "keyword" : "bgcolor" },
   "chrome_url_overrides" : {
     "newtab": "newtab.html"
-  }
+  },
+  "externally_connectable": {
+    "matches": ["*://*.example.com/*"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://example.com/",
+        "http://localhost:8081/*"
+      ],
+      "run_at": "document_idle",
+      "js": ["contentScript.js"]
+    }
+  ]
 }
