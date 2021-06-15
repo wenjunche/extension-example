@@ -1,0 +1,35 @@
+{
+  "name": "Options Example",
+  "description": "Options Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage",
+                  "activeTab",
+                  "scripting",
+                  "contextMenus",
+                  "management",
+                  "downloads",
+                  "cookies"
+                ],
+  "host_permissions": [
+      "https://playground.openfin.co/*",
+      "https://example.com/*",
+      "http://localhost:8081/*"
+    ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/get_started16.png",
+      "32": "/images/get_started32.png",
+      "48": "/images/get_started48.png",
+      "128": "/images/get_started128.png"
+    }
+  },
+  "options_page": "options.html",
+  "externally_connectable": {
+    "matches": ["*://*.example.com/*"]
+  }
+}
