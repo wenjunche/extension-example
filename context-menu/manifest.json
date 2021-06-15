@@ -1,0 +1,17 @@
+{
+  "name": "Context Menu Example",
+  "description": "Context Menu Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+                  "contextMenus"
+                ],
+  "host_permissions": [
+      "https://playground.openfin.co/*",
+      "https://example.com/*",
+      "http://localhost:8081/*"
+    ]
+}

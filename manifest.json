@@ -42,22 +42,11 @@
     "48": "/images/get_started48.png",
     "128": "/images/get_started128.png"
   },
-  "options_page": "options.html",
   "omnibox": { "keyword" : "bgcolor" },
   "chrome_url_overrides" : {
     "newtab": "newtab.html"
   },
   "externally_connectable": {
     "matches": ["*://*.example.com/*"]
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://example.com/",
-        "http://localhost:8081/*"
-      ],
-      "run_at": "document_idle",
-      "js": ["contentScript.js"]
-    }
-  ]
+  }
 }
