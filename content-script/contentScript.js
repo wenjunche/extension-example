@@ -13,7 +13,7 @@ if (div1) {
     div1.innerText = `set by extension for context of ${location.href}`;
 }
 
-// Communication with extensions
+// Communication with extensions: long live connection
 // connect to the extension
 const port = chrome.runtime.connect({name: location.href});
 port.onMessage.addListener((message) => {
@@ -28,3 +28,10 @@ window.addEventListener('message', (event) => {
     // foward to the extension
     port.postMessage(event.data);
 }, false);
+
+
+// Communication with extensions: one time request
+console.log('content script sending short hello');
+chrome.runtime.sendMessage("short hello", function(response) {
+    console.log(`Content script received: ${response}`);
+});

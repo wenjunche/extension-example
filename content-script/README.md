@@ -5,7 +5,6 @@ Content scripts live in an isolated world, allowing a content script to make cha
 By using the standard DOM, they are able to read details of the web pages the browser visits, make changes to them, and pass information to their parent extension.
 
 
-
 1. update app.json to have
 
 ~~~
@@ -25,7 +24,17 @@ created by extension for context of ${location.href}
 ~~~
 
 
-This example also demonstrates long-lived channels from content script to an extension.
+This example also demonstrates communication between content script to an extension.
+
+For one time request:
+
+1. chrome.runtime.sendMessage is not working as of 6/16/2021 with following error:
+
+~~~
+Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist
+~~~
+
+For long-lived channels from content script to an extension:
 
 1. run the following code in devtools->console of the main frame
 
@@ -34,7 +43,7 @@ window.addEventListener("message", (event) => console.log('this page got:', even
 window.postMessage('hello', '*');
 ~~~
 
-2. console shoudl show:
+2. console should show:
 
 ~~~
 Content script received: hello
