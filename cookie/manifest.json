@@ -1,0 +1,17 @@
+{
+  "name": "Cookie Example",
+  "description": "Cookie Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["cookies"
+                ],
+  "host_permissions": [
+      "https://example.com/*",
+      "https://openfin.co/*",
+      "https://*.openfin.co/*",
+      "http://localhost:8081/*"
+    ]
+}
