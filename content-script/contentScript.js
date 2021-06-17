@@ -31,8 +31,7 @@ window.addEventListener('message', (event) => {
 
 
 // Communication with extensions: one time request
-// @TODO  not working yet in Runtime
-// console.log('content script sending short hello');
-// chrome.runtime.sendMessage("short hello", function(response) {
-//     console.log(`Content script received: ${response}`);
-// });
+console.log('content script sending short hello');
+chrome.runtime.sendMessage("short hello", function(response) {
+    console.log(`Content script received: ${response}`);
+});
