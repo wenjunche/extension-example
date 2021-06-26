@@ -16,9 +16,9 @@
 	  "argumentsxx": " ",
 	  "version": "stable"
 	},
-	"extensionsxx": [
+	"extensions": [
 		{
-			"url": "C:\\Users\\wenju\\Documents\\projects\\extension-example\\cookie"
+			"url": "C:\\Users\\wenju\\Documents\\projects\\extension-example\\content-settings"
 		}
 	]
   }

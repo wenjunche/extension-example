@@ -5,7 +5,7 @@
 ~~~
 	"extensions": [
 		{
-			"url": "projects_root\\extension-example\\web-request"
+			"url": "projects_root\\extension-example\\declarative-net-request"
 		}
 	]
 ~~~
