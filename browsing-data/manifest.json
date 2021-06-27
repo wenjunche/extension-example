@@ -1,0 +1,18 @@
+{
+    "name": "Browsing Data Example",
+    "description": "Browsing Data Example",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "browsingData"
+    ],
+    "host_permissions": [
+      "https://example.com/*",
+      "http://localhost:8081/*",
+      "https://medium.com/*"
+    ]
+  }
+  
