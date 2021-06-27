@@ -1,0 +1,17 @@
+{
+    "name": "Downloads Example",
+    "description": "Downloads Example",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "downloads"
+    ],
+    "host_permissions": [
+      "https://example.com/*",
+      "http://localhost:8081/*"
+    ]
+  }
+  
