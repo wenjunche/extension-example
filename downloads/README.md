@@ -23,3 +23,9 @@ ownload status:
 ~~~
 
 5. after download is complete,  File Explorer should open to show download location.
+
+6. for "Download Cancalled",  devtools of the extension should show:
+
+~~~
+download status: {"error":{"current":"USER_CANCELED"},"id":112,"state":{"current":"interrupted","previous":"in_progress"}}
+~~~

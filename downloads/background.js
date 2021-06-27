@@ -1,6 +1,10 @@
 
 chrome.downloads.onCreated.addListener(function(item) {
   console.log(`download created: ${JSON.stringify(item)}`);
+  if (item.finalUrl.indexOf('runtime') > 0) {
+    console.log(`cancelling ${item.id}`);
+    chrome.downloads.cancel(item.id);
+  }
 });
 
 
