@@ -1,5 +1,7 @@
 # Storage example
 
+This example tests chrome.tabs and chrome.scripting.
+
 1. update app.json to have
 
 ~~~
