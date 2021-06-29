@@ -1,0 +1,15 @@
+{
+  "name": "Windows Example",
+  "description": "Windows Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://example.com/*",
+    "https://*.openfin.co/*",
+    "http://localhost:8081/*"
+  ],
+  "permissions": ["tabs"]
+}
