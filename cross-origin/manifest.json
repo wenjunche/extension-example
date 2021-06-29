@@ -1,0 +1,13 @@
+{
+  "name": "Cross Origin Example",
+  "description": "Cross Origin Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://*.openfin.co/*",
+    "http://localhost:8081/*"
+  ]
+}
