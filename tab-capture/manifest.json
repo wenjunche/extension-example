@@ -1,0 +1,23 @@
+{
+  "name": "TabCapture Example",
+  "description": "TabCapture Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+"permissions": [
+  "desktopCapture",
+    "tabs"
+  ],
+  "externally_connectable": {
+    "matches": ["http://localhost:9092/*",
+                "*://*.example.com/*"
+    ]
+  },
+  "host_permissions": [
+    "https://example.com/*",
+    "https://www.openfin.co/*",
+    "http://localhost:8081/*"
+  ]
+}
