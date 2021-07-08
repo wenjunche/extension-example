@@ -6,11 +6,18 @@
 ~~~
 	"extensions": [
 		{
-			"url": "projects_root\\extension-example\\page-capture"
+			"url": "projects_root\\extension-example\\tab-capture"
 		}
 	]
 ~~~
 
-2. start Runtime with app.json
+2. host tab-capture/index.html on localhost:9092
 
-3. open devtools->console for the extension and it should show buffer size of MHTML blob.
+3. start Runtime with app.json
+
+4. run
+~~~
+window.open('http://localhost:9092/index.html');
+~~~
+
+5. click on "Get the screen" and select "what to share"
