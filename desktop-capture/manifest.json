@@ -1,6 +1,6 @@
 {
-  "name": "TabCapture Example",
-  "description": "TabCapture Example",
+  "name": "Desktop Capture Example",
+  "description": "Desktop Capture Example",
   "version": "1.0",
   "manifest_version": 3,
   "background": {

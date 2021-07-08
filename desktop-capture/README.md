@@ -1,4 +1,4 @@
-# Page Capture example
+# Desktop Capture example
 
 
 1. update app.json to have
@@ -6,12 +6,12 @@
 ~~~
 	"extensions": [
 		{
-			"url": "projects_root\\extension-example\\tab-capture"
+			"url": "projects_root\\extension-example\\desktop-capture"
 		}
 	]
 ~~~
 
-2. host tab-capture/index.html on localhost:9092
+2. host desktop-capture/index.html on localhost:9092
 
 3. start Runtime with app.json
 
