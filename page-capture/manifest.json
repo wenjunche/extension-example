@@ -1,0 +1,19 @@
+{
+  "name": "PageCapture Example",
+  "description": "PageCapture Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+"permissions": [
+  "downloads",
+  "pageCapture",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://example.com/*",
+    "https://www.openfin.co/*",
+    "http://localhost:8081/*"
+  ]
+}
