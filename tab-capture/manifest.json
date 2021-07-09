@@ -1,0 +1,24 @@
+{
+  "name": "Tab Capture Example",
+  "description": "Tab Capture Example",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+"permissions": [
+  "activeTab",
+  "tabCapture",
+    "tabs",
+    "http://localhost:8081/*",
+    "http://localhost:9092/*"
+  ],
+  "externally_connectable": {
+    "matches": ["http://localhost:9092/*",
+                "*://*.example.com/*"
+    ]
+  }
+}

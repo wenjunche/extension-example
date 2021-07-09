@@ -1,0 +1,21 @@
+{
+  "name": "Notifications Example",
+  "description": "Notifications Example",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+"permissions": [
+  "notifications"
+  ],
+  "externally_connectable": {
+    "matches": ["http://localhost:9092/*"
+    ]
+  },
+  "host_permissions": [
+    "https://example.com/*",
+    "https://www.openfin.co/*",
+    "http://localhost:8081/*"
+  ]
+}

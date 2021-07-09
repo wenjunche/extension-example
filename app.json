@@ -10,7 +10,10 @@
 	  "saveWindowState": false,
 	  "waitForPageLoad": false,
 	  "defaultHeight": 600,
-	  "defaultWidth": 500
+	  "defaultWidth": 500,
+	  "permissions": {
+		"webAPIs": ["audio", "video", "geolocation", "notifications", "midiSysex", "pointerLock", "fullscreen", "openExternal", "clipboard-read", "clipboard-write"]
+		}
 	},
 	"runtime": {
 	  "argumentsxx": " ",
@@ -18,7 +21,7 @@
 	},
 	"extensions": [
 		{
-			"url": "C:\\Users\\wenju\\Documents\\projects\\extension-example\\tab-capture"
+			"url": "C:\\Users\\wenju\\Documents\\projects\\extension-example\\notifications"
 		}
 	]
   }
