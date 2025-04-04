@@ -9,7 +9,9 @@
   "host_permissions": [
     "https://example.com/*",
     "https://*.openfin.co/*",
-    "http://localhost:8081/*"
+    "http://localhost:8081/*",
+    "http://localhost/*"
   ],
-  "permissions": ["webNavigation"]
+  "permissions": ["webNavigation"
+]
 }
