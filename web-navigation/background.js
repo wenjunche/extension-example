@@ -1,8 +1,9 @@
 
 
 const ebUrl = 'http://localhost/login';
-const ebBaseUrl = 'http://localhost';
-const ebFinBaseUrl = 'fin://localhost';
+//const ebBaseUrl = 'http://localhost';
+//const ebFinBaseUrl = 'fin://localhost';
+let ebEnv;
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log(`onInstalled`);
@@ -14,9 +15,15 @@ chrome.runtime.onInstalled.addListener(() => {
           resetAllRules();
         }
     }
+    if (message.type === 'FROM_EB_ENV') {
+      ebEnv = message.text;
+      console.debug('Received EB env', ebEnv);
+      resetAllRules();
+    }
   });
 
-  resetAllRules();
+  init();
+
   /*
   chrome.declarativeNetRequest.updateDynamicRules({
       addRules: [{
@@ -62,7 +69,9 @@ async function clearAllRules() {
 }
 
 async function updateAllRules() {
-  console.debug('updateAllRules')
+  console.debug('updateAllRules');
+  const ebBaseUrl = `${ebEnv.startsWith('localhost')?'http':'https'}://${ebEnv}`;
+  const ebFinBaseUrl = `${ebEnv.startsWith('localhost')?'fin':'fins'}://${ebEnv}`;
   const resp = await fetch(`${ebBaseUrl}/platform/api/user/apps`);
   if (resp.status === 200) {
     const apps = await resp.json();
@@ -94,16 +103,34 @@ async function updateAllRules() {
     console.debug('getApps rejected, trying to log in', resp.status);
     chrome.tabs.create({ url: `${ebBaseUrl}/login`});
   }
-
-  // chrome.windows.create({
-  //   url: "popup.html",
-  //   type: "popup",
-  //   width: 400,
-  //   height: 500
-  // });
 }
 
 async function resetAllRules() {
   await clearAllRules();
   await updateAllRules();
+}
+
+async function getEBEnv() {
+  return new Promise((resolve) => {
+    chrome.storage.local.get(['EBENV'], (result) => {
+        console.debug('reading EBENV from storage', result);
+        resolve(result?.EBENV);
+    });
+  });
+}
+
+async function init() {
+  const env = await getEBEnv();
+  if (env) {
+    console.debug('found EB env', env);
+    ebEnv = env;
+    resetAllRules();
+  } else {
+    chrome.windows.create({
+       url: "popup.html",
+       type: "popup",
+       width: 400,
+       height: 200
+     });
+  }
 }

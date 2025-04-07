@@ -9,7 +9,7 @@
   "host_permissions": [
     "<all_urls>"
   ],
-  "permissions": ["webNavigation", "declarativeNetRequest"],
+  "permissions": ["webNavigation", "declarativeNetRequest", "storage"],
   "content_scripts": [
     {
       "matches": ["http://localhost/"],
