@@ -7,11 +7,17 @@
     "service_worker": "background.js"
   },
   "host_permissions": [
-    "https://example.com/*",
-    "https://*.openfin.co/*",
-    "http://localhost:8081/*",
-    "http://localhost/*"
+    "<all_urls>"
   ],
-  "permissions": ["webNavigation"
-]
+  "permissions": ["webNavigation", "declarativeNetRequest"],
+  "content_scripts": [
+    {
+      "matches": ["http://localhost/"],
+      "run_at": "document_idle",
+      "all_frames": false,
+      "js": ["contentScript.js"]
+    }
+  ]
+
+
 }
