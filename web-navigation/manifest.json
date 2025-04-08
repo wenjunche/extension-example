@@ -17,7 +17,9 @@
       "all_frames": false,
       "js": ["contentScript.js"]
     }
-  ]
-
-
+  ],
+  "web_accessible_resources": [{
+    "resources": ["redirect.html"],
+    "matches": ["<all_urls>"]
+  }]
 }

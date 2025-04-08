@@ -80,13 +80,15 @@ async function updateAllRules() {
     const rules = [];
     for (const app of apps) {
       for (const domain of app.domains) {
+        const url = `${ebFinBaseUrl}/platform/api/platform.json?$$launchcontentuuid=${app.contentId}`;
         rules.push(
           {
             id: ruleId,
             priority: 1,
             action: {
               type: 'redirect',
-              redirect: { url: `${ebFinBaseUrl}/platform/api/platform.json?$$launchcontentuuid=${app.contentId}`}
+//              redirect: { url: `${ebFinBaseUrl}/platform/api/platform.json?$$launchcontentuuid=${app.contentId}`}
+              redirect: { extensionPath: `/redirect.html?source=${domain}&target=${url}` }
             },
             condition: {
               urlFilter: `||${domain}`,
