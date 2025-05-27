@@ -1,0 +1,12 @@
+{
+  "name": "Managed Test Ext",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "storage": {
+    "managed_schema": "schema.json"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
