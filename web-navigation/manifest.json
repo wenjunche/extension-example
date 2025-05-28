@@ -21,5 +21,8 @@
   "web_accessible_resources": [{
     "resources": ["redirect.html"],
     "matches": ["<all_urls>"]
-  }]
+  }],
+  "storage": {
+    "managed_schema": "schema.json"
+  }
 }

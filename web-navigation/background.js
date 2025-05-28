@@ -27,6 +27,15 @@ chrome.runtime.onInstalled.addListener(() => {
   init();
 });
 
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+  if (namespace === 'managed' && changes.enterpriseBrowserEnvironment) {
+    console.log("enterpriseBrowserEnvironment changed from",
+                changes.enterpriseBrowserEnvironment.oldValue,
+                "to", changes.enterpriseBrowserEnvironment.newValue);
+    // @TODO: handle changes to the managed policy
+  }
+});
+  
 chrome.webNavigation.onBeforeNavigate.addListener(details => {
   console.log(`onBeforeNavigate ${JSON.stringify(details)}`);
   const isMainFrame = details?.frameType === 'outermost_frame';
@@ -142,7 +151,32 @@ async function resetAllDomainMap() {
   await updateDomainMap();
 }
 
+async function getManagedEnv() {
+  return new Promise((resolve) => {
+    chrome.storage.managed.get(['enterpriseBrowserEnvironment'], function(result) {
+      if (chrome.runtime.lastError) {
+        console.error("Error reading managed storage:", chrome.runtime.lastError);
+        resolve(null);
+        return;
+      }
+
+      const environment = result.enterpriseBrowserEnvironment;
+      if (environment) {
+        console.log("Managed Browser Environment:", environment);
+        resolve(environment);
+      } else {
+        console.log("enterpriseBrowserEnvironment policy not set or not found.");
+        resolve(null);
+      }
+    });
+  });  
+}
+
 async function getEBEnv() {
+  const managedEnv = await getManagedEnv();
+  if (managedEnv) {
+    return managedEnv;
+  }
   return new Promise((resolve) => {
     chrome.storage.local.get(['EBENV'], (result) => {
         console.debug('reading EBENV from storage', result);
